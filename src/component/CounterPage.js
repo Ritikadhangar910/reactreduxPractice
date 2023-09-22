@@ -1,12 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
+import { counterActions } from "../store/store";
 const CounterPage = () => {
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter);
+  const counter = useSelector((state) => state.countervalue.counter);
   function increamentHandler() {
-    dispatch({ type: "increament5" });
+    dispatch(counterActions.increament());
   }
   function decrementHandler() {
-    dispatch({ type: "decrement5" });
+    dispatch(counterActions.decrement());
   }
   return (
     <>
