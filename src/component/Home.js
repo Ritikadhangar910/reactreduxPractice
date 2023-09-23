@@ -3,7 +3,7 @@ import { authActions } from "../store/store";
 const Home = () => {
   const dispatch = useDispatch();
   function logoutHandler() {
-    dispatch(authActions.logout());
+    dispatch(authActions.toggleAuthentication());
   }
   return (
     <>

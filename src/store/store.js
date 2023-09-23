@@ -19,11 +19,8 @@ const authSlice = createSlice({
   name: "authentication",
   initialState: initialAuthState,
   reducers: {
-    login(state) {
-      state.isAuthenticated = true;
-    },
-    logout(state) {
-      state.isAuthenticated = false;
+    toggleAuthentication(state) {
+      state.isAuthenticated = !state.isAuthenticated;
     },
   },
 });
