@@ -1,18 +1,16 @@
-import CounterPage from "./component/CounterPage";
-import Home from "./component/Home";
-import { authActions } from "./store/store";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import Mynavbar from "./component/Mynavbar";
+import Cart from "./component/Cart";
+import ShowProducts from "./component/ShowProducts";
 
 function App() {
-  const dispatch = useDispatch();
-  const auth = useSelector((state) => state.auth.isAuthenticated);
-  function showhome() {
-    dispatch(authActions.toggleAuthentication());
-  }
+  const toggleCart = useSelector((state) => state.toggleCart.togglecart);
+
   return (
     <>
-      {auth ? <Home /> : <button onClick={showhome}>show this</button>}
-      <CounterPage />
+      <Mynavbar />
+      {toggleCart ? <Cart /> : null}
+      <ShowProducts />
     </>
   );
 }
