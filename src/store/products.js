@@ -1,12 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialProductState = {
   products: [],
+  changed: false,
 };
 const productSlice = createSlice({
   name: "product",
   initialState: initialProductState,
   reducers: {
+    replaceCart(state, action) {
+      state.products = action.payload.products;
+    },
     addProducts(state, action) {
+      state.changed = true;
       let addedproduct = action.payload;
       let productIndex = state.products.findIndex((item) => {
         return item.id === addedproduct.id;
@@ -27,6 +32,7 @@ const productSlice = createSlice({
       }
     },
     removeProducts(state, action) {
+      state.changed = true;
       let addedproduct = action.payload;
       let productIndex = state.products.findIndex((item) => {
         return item.id === addedproduct;
